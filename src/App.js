@@ -10,11 +10,12 @@ const today = new Date();
 
 const getNextBday = (selected, pow = 1) => {
   const sumDate = new Date(selected);
-  sumDate.setDate(sumDate.getDate() + Math.pow(10, pow));
+  const finalPow = Math.pow(10, pow);
+  sumDate.setDate(sumDate.getDate() + finalPow);
   if (sumDate >= today) {
     return {
       date: sumDate.toLocaleDateString(),
-      pow
+      finalPow
     }
   }
   return getNextBday(selected, pow + 1);
@@ -47,7 +48,9 @@ function App() {
             />
             {firstTime && (
               <Typography variant="h6" style={{marginTop: 30}}>
-                {`Your next math birthday is your ${mathBday.pow}-day-old birthday on ${mathBday.date}`}
+                {`Your next math birthday is your 
+                  ${mathBday.finalPow.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}-day-old birthday on
+                  ${mathBday.date}`}
               </Typography>
             )}
           </Paper>
