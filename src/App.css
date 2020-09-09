@@ -28,26 +28,21 @@ body {
   border-color: #07f;
   color: #fff;
 }
-
 .button:active {
   opacity: 0.7;
 }
-
 .options {
   padding: 1rem;
   background-color: #fff;
 }
-
 label {
   display: block;
   margin-bottom: 0.9rem;
   cursor: pointer;
 }
-
 label:last-child {
   margin: 0;
 }
-
 .options {
   padding: 1rem;
   background-color: #fff;
@@ -58,38 +53,30 @@ label:last-child {
   min-width: 5rem;
   box-shadow: 0px 2px 10px -4px #b7b7b7;
 }
-
 .options-multi {
   min-width: 18rem;
   padding: 0;
 }
-
 .text-right {
   text-align: right;
 }
-
 hr {
   margin: 0;
   padding: 0;
   border: 0.5px solid #efefef;
 }
-
 .p10 {
   padding: 1rem;
 }
-
 .p5 {
   padding: 0.5rem;
 }
-
 .relative {
   position: relative;
 }
-
 .inline-block {
   display: inline-block;
 }
-
 .mr-10 {
   margin-right: 1rem;
 }
