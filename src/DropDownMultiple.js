@@ -61,7 +61,9 @@ function DropDownMultiple() {
   });
   return (
     <div className="relative inline-block" ref={drop}>
-      <button className={open ? 'button button-active' : 'button'} onClick={toggle}>{titleButton}</button>
+      <button className={open ? 'button button-active' : 'button'} onClick={toggle}>
+        {options[0].isChecked ? 'All Arrangement Types' : titleButton}
+      </button>
       {open && (
         <div className="options options-multi">
           <div className="p10">
