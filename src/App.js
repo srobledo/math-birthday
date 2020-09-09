@@ -1,62 +1,14 @@
-import React, { useState } from 'react';
-import { DatePicker } from "@material-ui/pickers";
-import Typography from '@material-ui/core/Typography';
-import { MuiPickersUtilsProvider } from '@material-ui/pickers';
-import DateFnsUtils from '@date-io/date-fns';
-import Paper from '@material-ui/core/Paper';
+import React from 'react';
+import DropDownSingle from './DropDownSingle';
+import DropDownMultiple from './DropDownMultiple';
 import './App.css';
 
-const today = new Date();
-
-const getNextBday = (selected, pow = 1) => {
-  const sumDate = new Date(selected);
-  const finalPow = Math.pow(10, pow);
-  sumDate.setDate(sumDate.getDate() + finalPow);
-  if (sumDate >= today) {
-    return {
-      date: sumDate.toLocaleDateString(),
-      finalPow
-    }
-  }
-  return getNextBday(selected, pow + 1);
-};
-
 function App() {
-  const [selectedDate, handleDateChange] = useState(new Date());
-  const [firstTime, firstTimeChange] = useState(false);
-  const mathBday = getNextBday(selectedDate);
-  const handleDate = (date) => {
-    handleDateChange(date);
-    firstTimeChange(true);
-  };
   return (
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <div className="App">
-        <header className="App-header">
-          <Paper style={{padding: 40}}>
-            <Typography variant="h5" style={{marginBottom: 30}}>
-              Math birthday
-            </Typography>
-            <DatePicker
-              disableFuture
-              openTo="year"
-              format="dd/MM/yyyy"
-              label="Date of birth"
-              views={["year", "month", "date"]}
-              value={selectedDate}
-              onChange={handleDate}
-            />
-            {firstTime && (
-              <Typography variant="h6" style={{marginTop: 30}}>
-                {`Your next math birthday is your 
-                  ${mathBday.finalPow.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}-day-old birthday on
-                  ${mathBday.date}`}
-              </Typography>
-            )}
-          </Paper>
-        </header>
-      </div>
-    </MuiPickersUtilsProvider>
+    <div className="p10">
+      <DropDownSingle />
+      <DropDownMultiple />
+    </div>
   );
 }
 
