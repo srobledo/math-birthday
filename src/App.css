@@ -89,3 +89,7 @@ hr {
 .inline-block {
   display: inline-block;
 }
+
+.mr-10 {
+  margin-right: 1rem;
+}

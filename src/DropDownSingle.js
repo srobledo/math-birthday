@@ -22,7 +22,7 @@ function DropDownSingle() {
     });
   });
   return (
-    <div className="relative inline-block" ref={drop}>
+    <div className="relative inline-block mr-10" ref={drop}>
       <button className={open ? 'button button-active' : 'button'} onClick={toggle}>{`${option || 'Marketplace'}`}</button>
       {open && (
         <div className="options">

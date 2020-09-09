@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 let selectedFilters = [];
-let titleButton = 'Arrangement Types';
 
 function DropDownMultiple() {
   const [open, setOpen] = useState(false);
@@ -10,13 +9,12 @@ function DropDownMultiple() {
     {id: 2, value: "Private Room", isChecked: false, disabled: false},
     {id: 3, value: "Shared Room", isChecked: false, disabled: false},
   ]);
+  let titleButton = 'Arrangement Types';
   if (selectedFilters.length) {
     titleButton = selectedFilters[0];
     if (selectedFilters.length > 1) {
       titleButton = `+${selectedFilters.length - 1} ${selectedFilters[0]}`;
     }
-  } else {
-    titleButton = 'Arrangement Types';
   }
   const drop = useRef(null);
   const toggle = () => {
